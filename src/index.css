@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+
+  /* Tema newsprint: kertas hangat, tinta pekat, aksen merah koran */
+  --color-canvas: #f6f2e9;
+  --color-paper: #fffdf7;
+  --color-ink: #1c1917;
+  --color-soft: #6d6558;
+  --color-line: #e3dccb;
+  --color-brand: #b91c1c;
+  --color-brand-dark: #7f1d1d;
+  --color-brand-soft: #fbe9e7;
+  --color-flag: #a16207;
+  --color-flag-soft: #fef3c7;
+  --color-live: #b91c1c;
+}
+
+body {
+  background-color: var(--color-canvas);
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: #cfc4ad;
+  border-radius: 8px;
+}
+
+/* Breaking ticker: marquee CSS murni (konten digandakan agar mulus) */
+@keyframes wartara-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: wartara-marquee 38s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
